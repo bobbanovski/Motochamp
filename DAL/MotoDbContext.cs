@@ -1,0 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using WebApplicationBasic.Models;
+
+namespace WebApplicationBasic.DAL
+{
+    public class MotoDbContext : DbContext
+    {
+        public MotoDbContext(DbContextOptions<MotoDbContext> options) : base(options){}
+
+        public DbSet<Bike> Bikes{ get; set; }
+    }
+}

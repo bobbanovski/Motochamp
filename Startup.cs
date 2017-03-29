@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using WebApplicationBasic.DAL;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplicationBasic
 {
@@ -30,6 +32,8 @@ namespace WebApplicationBasic
         {
             // Add framework services.
             services.AddMvc();
+            services.AddDbContext<MotoDbContext>(options => options
+                .UseSqlServer(Configuration.GetConnectionString("MotoDb")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
