@@ -33,7 +33,7 @@ namespace WebApplicationBasic
             // Add framework services.
             services.AddMvc();
             services.AddDbContext<MotoDbContext>(options => options
-                .UseSqlServer(Configuration.GetConnectionString("MotoDb")));
+                .UseSqlServer(Configuration.GetConnectionString("Default")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
