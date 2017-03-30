@@ -1,9 +1,7 @@
-namespace WebApplicationBasic.Models
-{    
-    public class Bike
+namespace WebApplicationBasic.Dtos
+{
+    public class BikeDto
     {
-        public int Id { get; set; }
-
         public string Brand { get; set; }
 
         public string Year { get; set; }

@@ -8,9 +8,10 @@ using WebApplicationBasic.DAL;
 namespace Motochamp.Migrations
 {
     [DbContext(typeof(MotoDbContext))]
-    partial class MotoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20170330085932_User-model")]
+    partial class Usermodel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.1")

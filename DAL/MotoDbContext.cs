@@ -8,5 +8,6 @@ namespace WebApplicationBasic.DAL
         public MotoDbContext(DbContextOptions<MotoDbContext> options) : base(options){}
 
         public DbSet<Bike> Bikes{ get; set; }
+        public DbSet<User> Users{ get; set; }
     }
 }
