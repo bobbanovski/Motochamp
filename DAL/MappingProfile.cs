@@ -1,4 +1,6 @@
 using AutoMapper;
+using WebApplicationBasic.Models;
+using WebApplicationBasic.Dtos;
 
 namespace WebApplicationBasic.DAL
 {
@@ -6,7 +8,8 @@ namespace WebApplicationBasic.DAL
     {
         public MappingProfile()
         {
-
+            CreateMap<Bike, BikeDto>();
+            CreateMap<User, UserDto>();
         }
     }
 }
