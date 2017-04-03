@@ -8,8 +8,8 @@ using WebApplicationBasic.DAL;
 namespace Motochamp.Migrations
 {
     [DbContext(typeof(MotoDbContext))]
-    [Migration("20170330085932_User-model")]
-    partial class Usermodel
+    [Migration("20170403150039_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -37,6 +37,22 @@ namespace Motochamp.Migrations
                     b.ToTable("Bikes");
                 });
 
+            modelBuilder.Entity("WebApplicationBasic.Models.Model", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BikeId");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BikeId");
+
+                    b.ToTable("Models");
+                });
+
             modelBuilder.Entity("WebApplicationBasic.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -54,6 +70,14 @@ namespace Motochamp.Migrations
                     b.HasOne("WebApplicationBasic.Models.User")
                         .WithMany("Bikes")
                         .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("WebApplicationBasic.Models.Model", b =>
+                {
+                    b.HasOne("WebApplicationBasic.Models.Bike", "Bike")
+                        .WithMany("Models")
+                        .HasForeignKey("BikeId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

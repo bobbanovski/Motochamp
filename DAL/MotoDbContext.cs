@@ -9,5 +9,7 @@ namespace WebApplicationBasic.DAL
 
         public DbSet<Bike> Bikes{ get; set; }
         public DbSet<User> Users{ get; set; }
+
+        public DbSet<Model> Models{ get; set; }
     }
 }
