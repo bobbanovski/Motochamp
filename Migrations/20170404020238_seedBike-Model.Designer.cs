@@ -8,8 +8,8 @@ using WebApplicationBasic.DAL;
 namespace Motochamp.Migrations
 {
     [DbContext(typeof(MotoDbContext))]
-    [Migration("20170403150039_initial")]
-    partial class initial
+    [Migration("20170404020238_seedBike-Model")]
+    partial class seedBikeModel
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,9 @@ namespace Motochamp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Brand");
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasMaxLength(255);
 
                     b.Property<string>("Registration");
 
@@ -44,7 +46,9 @@ namespace Motochamp.Migrations
 
                     b.Property<int>("BikeId");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255);
 
                     b.HasKey("Id");
 
@@ -58,7 +62,8 @@ namespace Motochamp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
