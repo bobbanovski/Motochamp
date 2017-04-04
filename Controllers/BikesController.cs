@@ -7,23 +7,24 @@ using WebApplicationBasic.DAL;
 using AutoMapper;
 using WebApplicationBasic.Models;
 using WebApplicationBasic.Dtos;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebApplicationBasic.Controllers
 {
-    public class BikesController
+    public class BikesController : Controller
     {
-        private MotoDbContext _context;
-        private IMapper _mapper;
+        private readonly MotoDbContext _context;
+        private readonly IMapper _mapper;
 
         public BikesController(MotoDbContext context, IMapper mapper){
             this._context = context;
             this._mapper = mapper;
         }
 
-        [HttpGetAttribute("/api/bikes")]
-        public IEnumerable<BikeDto> GetBikes() {
-            var bikes = _context.Bikes.ToList();
-            return _mapper.Map<List<Bike>, List<BikeDto>>(bikes);
+        [HttpGet("/api/bikes")]
+        public async Task<IEnumerable<Bike>> GetBikes() {
+            
+            return await _context.Bikes.Include(m => m.Models).ToListAsync();
         }
     }
 }
