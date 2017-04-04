@@ -9,6 +9,7 @@ namespace WebApplicationBasic.DAL
         public MappingProfile()
         {
             CreateMap<Bike, BikeDto>();
+            CreateMap<Model, ModelDto>();
             CreateMap<User, UserDto>();
         }
     }

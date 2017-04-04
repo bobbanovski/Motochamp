@@ -21,10 +21,12 @@ namespace WebApplicationBasic.Controllers
             this._mapper = mapper;
         }
 
-        [HttpGet("/api/bikes")]
-        public async Task<IEnumerable<Bike>> GetBikes() {
+        [HttpGet("api/bikes")]
+        public async Task<IEnumerable<BikeDto>> GetBikes() {
             
-            return await _context.Bikes.Include(m => m.Models).ToListAsync();
+            var bikes = await _context.Bikes.Include(m => m.Models).ToListAsync();
+            
+            return _mapper.Map<List<Bike>, List<BikeDto>>(bikes);
         }
     }
 }
