@@ -28,7 +28,7 @@ namespace Motochamp.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql("DELETE FROM Bikes");
+            migrationBuilder.Sql("DELETE FROM Bikes WHERE Name IN ('Bike1', 'Bike2', 'Bike3')");
         }
     }
 }
