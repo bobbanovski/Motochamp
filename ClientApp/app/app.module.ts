@@ -22,10 +22,11 @@ import { MotorbikeFormComponent } from './components/motorbike-form/motorbike-fo
         UniversalModule, // Must be first import. This automatically imports BrowserModule, HttpModule, and JsonpModule too.
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
+            { path: 'motorbike-form/new', component: MotorbikeFormComponent},
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: '**', redirectTo: 'home' }
+            { path: '**', redirectTo: 'home' },            
         ])
     ]
 })
